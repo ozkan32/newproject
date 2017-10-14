@@ -43,7 +43,7 @@ public class App {
         w.flush();
       }
     });
-    ctx.addServletMapping("/*", "hello");
+    ctx.addServletMapping("/*", "hello ozkan");
 
     tomcat.start();
     //without this the process exits

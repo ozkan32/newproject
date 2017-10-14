@@ -1,0 +1,85 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.springsource.tcruntime.embeddedexample</groupId>
+	<artifactId>example</artifactId>
+	<version>0.0.6-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>example</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tcruntime.version>7.0.81.B.RELEASE</tcruntime.version>
+		<tcserver.version>3.2.7.RELEASE</tcserver.version>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.springsource.tcruntime.embeddedexample.example.App</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+       
+	</build>
+	<repositories>
+	<repository>
+	       <id>tcserver-release-repo</id>
+	       <name>TC Server Embedded Runtime</name>
+	       <url>https://commercial-repo.pivotal.io/data3/tcserver-release-repo/tcserver</url>
+	   </repository>
+	</repositories>
+	<dependencies>
+		<dependency>
+			<groupId>tcruntime.embed</groupId>
+			<artifactId>io.pivotal.tcserver.org.apache.tomcat.core</artifactId>
+			<version>${tcruntime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>tcruntime.embed</groupId>
+			<artifactId>io.pivotal.tcserver.org.apache.tomcat.logging.juli</artifactId>
+			<version>${tcruntime.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>tcruntime.embed</groupId>
+			<artifactId>io.pivotal.tcserver.org.apache.tomcat.logging.log4j</artifactId>
+			<version>${tcruntime.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>tcruntime.embed</groupId>
+            <artifactId>io.pivotal.tcserver.org.apache.tomcat.jasper</artifactId>
+            <version>${tcruntime.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>tcruntime.embed</groupId>
+            <artifactId>io.pivotal.tcserver</artifactId>
+            <version>${tcserver.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+</project>

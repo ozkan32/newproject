@@ -9,8 +9,10 @@
 
 	<name>example</name>
 	<url>http://maven.apache.org</url>
-
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tcruntime.version>7.0.81.B.RELEASE</tcruntime.version>
+		<tcserver.version>3.2.7.RELEASE</tcserver.version>
 	</properties>
 	<build>
 		<plugins>
